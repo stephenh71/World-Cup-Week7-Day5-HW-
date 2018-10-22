@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {packages: ['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+        var data = new google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses', 'Profit'],
+          ['2014', 1000, 400, 200],
+          ['2015', 1170, 460, 250],
+          ['2016', 660, 1120, 300],
+          ['2017', 1030, 540, 350]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Company Performance',
+            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          },
+          bars: 'horizontal',
+          vAxis: {format: 'decimal'},
+          height: 400,
+          colors: ['#1b9e77', '#d95f02', '#7570b3']
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, null);
+
+
+        // var btns = document.getElementById('btn-group');
+        //
+        // btns.onclick = function (e) {
+        //
+        //   if (e.target.tagName === 'BUTTON') {
+        //     options.vAxis.format = e.target.id === 'none' ? '' : e.target.id;
+        //   }
+        // }
+      };
+      </script>
+      </head>
+      <body>
+      <!-- Identify where the chart should be drawn. -->
+      <div id="chart_div"/>
+      </body>
